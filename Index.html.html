@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ZEE Essentials Skin Analysis Quiz</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body {
+      background: #fff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #d81b60;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 420px;
+      margin: 36px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(216,27,96,0.08);
+      padding: 24px 20px 32px 20px;
+    }
+    .brand {
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #d81b60;
+      letter-spacing: 1px;
+    }
+    .subtitle {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #d81b60;
+      font-size: 1.08em;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question label {
+      display: block;
+      margin-bottom: 8px;
+      color: #d81b60;
+      font-weight: 500;
+    }
+    .question input[type="text"], .question select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #f8bbd0;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      font-size: 1em;
+    }
+    .question input[type="radio"], .question input[type="checkbox"] {
+      accent-color: #d81b60;
+      margin-right: 4px;
+    }
+    .choices {
+      margin-bottom: 6px;
+    }
+    .btn {
+      background: #d81b60;
+      color: #fff;
+      border: none;
+      padding: 12px 0;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.18s;
+    }
+    .btn:hover {
+      background: #ad1457;
+    }
+    .result {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .rec {
+      background: #fce4ec;
+      border-radius: 7px;
+      padding: 10px;
+      margin: 10px 0 18px 0;
+      color: #ad1457;
+      font-size: 1.01em;
+    }
+    .whatsapp {
+      display: block;
+      background: #25D366;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 14px 0;
+      text-decoration: none;
+      font-size: 1.03em;
+      font-weight: 600;
+      margin-top: 14px;
+      transition: background 0.18s;
+    }
+    .whatsapp:hover {
+      background: #128c7e;
+    }
+    .privacy {
+      text-align: center;
+      font-size: 0.93em;
+      color: #888;
+      margin-top: 16px;
+    }
+    @media (max-width: 500px) {
+      .container {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 100vh;
+        padding-top: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="main">
+    <div class="brand">ZEE Essentials</div>
+    <div class="subtitle">Personalized Face & Body Skin Analysis Quiz</div>
+    <form id="quizForm">
+      <!-- FACE QUESTIONS -->
+      <div class="question">
+        <label>1. What is your main facial skin concern?</label>
+        <div class="choices">
+          <label><input type="radio" name="faceConcern" value="Acne" required> Acne</label>
+          <label><input type="radio" name="faceConcern" value="Hyperpigmentation"> Hyperpigmentation</label>
+          <label><input type="radio" name="faceConcern" value="Dryness"> Dryness</label>
+          <label><input type="radio" name="faceConcern" value="Oiliness"> Oiliness</label>
+          <label><input type="radio" name="faceConcern" value="Sensitivity"> Sensitivity</label>
+          <label><input type="radio" name="faceConcern" value="Aging"> Aging</label>
+          <label><input type="radio" name="faceConcern" value="Dullness"> Dullness</label>
+          <label><input type="radio" name="faceConcern" value="None"> None</label>
+        </div>
+      </div>
+      <div class="question">
+        <label>2. What is your facial skin type?</label>
+        <div class="choices">
+          <label><input type="radio" name="faceType" value="Oily" required> Oily</label>
+          <label><input type="radio" name="faceType" value="Dry"> Dry</label>
+          <label><input type="radio" name="faceType" value="Combination"> Combination</label>
+          <label><input type="radio" name="faceType" value="Normal"> Normal</label>
+          <label><input type="radio" name="faceType" value="Sensitive"> Sensitive</label>
+        </div>
+      </div>
+      <div class="question">
+        <label>3. How often do you use skincare products on your face?</label>
+        <div class="choices">
+          <label><input type="radio" name="faceRoutine" value="Daily" required> Daily</label>
+          <label><input type="radio" name="faceRoutine" value="Occasionally"> Occasionally</label>
+          <label><input type="radio" name="faceRoutine" value="Never"> Never</label>
+        </div>
+      </div>
+      <div class="question">
+        <label>4. Do you have allergies to any ingredients?</label>
+        <div class="choices">
+          <label><input type="radio" name="allergy" value="No" required> No</label>
+          <label><input type="radio" name="allergy" value="Yes"> Yes</label>
+        </div>
+        <input type="text" name="allergyDetails" placeholder="If yes, please specify" style="margin-top:5px;" />
+      </div>
+      <div class="question">
+        <label>5. What is your age range?</label>
+        <select name="ageRange" required>
+          <option value="">Select</option>
+          <option value="Under 18">Under 18</option>
+          <option value="18–24">18–24</option>
+          <option value="25–34">25–34</option>
+          <option value="35–44">35–44</option>
+          <option value="45+">45+</option>
+        </select>
+      </div>
+      <!-- BODY QUESTIONS -->
+      <div class="question">
+        <label>6. What is your main body skin concern?</label>
+        <div class="choices">
+          <label><input type="radio" name="bodyConcern" value="Stretch marks" required> Stretch marks</label>
+          <label><input type="radio" name="bodyConcern" value="Dryness"> Dryness</label>
+          <label><input type="radio" name="bodyConcern" value="Hyperpigmentation"> Hyperpigmentation</label>
+          <label><input type="radio" name="bodyConcern" value="Body acne"> Body acne</label>
+          <label><input type="radio" name="bodyConcern" value="Sensitivity"> Sensitivity</label>
+          <label><input type="radio" name="bodyConcern" value="None"> None</label>
+        </div>
+      </div>
+      <div class="question">
+        <label>7. Do you experience irritation after using body products?</label>
+        <div class="choices">
+          <label><input type="radio" name="bodyIrritation" value="No" required> No</label>
+          <label><input type="radio" name="bodyIrritation" value="Yes"> Yes</label>
+        </div>
+      </div>
+      <div class="question">
+        <label>8. How often do you moisturize your body?</label>
+        <div class="choices">
+          <label><input type="radio" name="bodyMoisturize" value="Daily" required> Daily</label>
+          <label><input type="radio" name="bodyMoisturize" value="Occasionally"> Occasionally</label>
+          <label><input type="radio" name="bodyMoisturize" value="Never"> Never</label>
+        </div>
+      </div>
+      <!-- PREFERENCES -->
+      <div class="question">
+        <label>9. Preferred product format?</label>
+        <div class="choices">
+          <label><input type="radio" name="prodFormat" value="Cream" required> Cream</label>
+          <label><input type="radio" name="prodFormat" value="Oil"> Oil</label>
+          <label><input type="radio" name="prodFormat" value="Serum"> Serum</label>
+          <label><input type="radio" name="prodFormat" value="Soap"> Soap</label>
+          <label><input type="radio" name="prodFormat" value="No preference"> No preference</label>
+        </div>
+      </div>
+      <div class="question">
+        <label>10. What is your skincare budget?</label>
+        <select name="budget" required>
+          <option value="">Select</option>
+          <option value="₦25,000–₦40,000">₦25,000–₦40,000</option>
+          <option value="₦41,000–₦60,000">₦41,000–₦60,000</option>
+          <option value="₦61,000–₦80,000">₦61,000–₦80,000</option>
+        </select>
+      </div>
+      <div class="question">
+        <label>11. Would you like to share your name for a personalized experience?</label>
+        <input type="text" name="username" placeholder="Your name (optional)">
+      </div>
+      <button class="btn" type="submit">See Recommendations</button>
+    </form>
+    <div id="result" class="result" style="display:none"></div>
+  </div>
+  <script>
+    // Simple product mapping for demonstration; customize as needed
+    const products = [
+      {
+        concerns: ['Acne', 'Body acne'],
+        type: ['Oily', 'Combination'],
+        recommendation: 'Purifying Face & Body Wash + Acne Spot Serum',
+        price: '₦32,500'
+      },
+      {
+        concerns: ['Hyperpigmentation'],
+        type: ['All'],
+        recommendation: 'Brightening Serum + Even Tone Body Butter',
+        price: '₦45,000'
+      },
+      {
+        concerns: ['Dryness'],
+        type: ['Dry', 'Sensitive', 'All'],
+        recommendation: 'Hydra-Boost Moisturizer + Intensive Repair Oil',
+        price: '₦41,000'
+      },
+      {
+        concerns: ['Aging'],
+        type: ['All'],
+        recommendation: 'Rejuvenating Face Cream + Collagen Body Lotion',
+        price: '₦56,000'
+      },
+      {
+        concerns: ['Stretch marks'],
+        type: ['All'],
+        recommendation: 'Stretch Mark Therapy Oil + Renew Body Cream',
+        price: '₦38,000'
+      },
+      {
+        concerns: ['Dullness'],
+        type: ['All'],
+        recommendation: 'Glow Booster Serum + Radiance Soap',
+        price: '₦29,000'
+      },
+      {
+        concerns: ['Sensitivity'],
+        type: ['Sensitive'],
+        recommendation: 'Soothing Face Cream + Gentle Hydrating Lotion',
+        price: '₦37,000'
+      }
+    ];
+
+    function getRecommendation(faceConcern, bodyConcern, faceType) {
+      let recs = [];
+      for (const prod of products) {
+        if (
+          (prod.concerns.includes(faceConcern) && (prod.type.includes(faceType) || prod.type.includes('All'))) ||
+          (prod.concerns.includes(bodyConcern) && (prod.type.includes(faceType) || prod.type.includes('All')))
+        ) {
+          recs.push(prod);
+        }
+      }
+      // If empty, fallback
+      if (recs.length === 0) {
+        recs.push({
+          recommendation: 'Classic Skincare Set (cleanser, moisturizer, sunscreen)',
+          price: '₦35,000'
+        });
+      }
+      // Limit to 2 recommendations
+      return recs.slice(0,2);
+    }
+
+    document.getElementById('quizForm').onsubmit = function(e) {
+      e.preventDefault();
+      const fd = new FormData(this);
+      const faceConcern = fd.get('faceConcern') || '';
+      const faceType = fd.get('faceType') || '';
+      const faceRoutine = fd.get('faceRoutine') || '';
+      const allergy = fd.get('allergy') || '';
+      const allergyDetails = fd.get('allergyDetails') || '';
+      const ageRange = fd.get('ageRange') || '';
+      const bodyConcern = fd.get('bodyConcern') || '';
+      const bodyIrritation = fd.get('bodyIrritation') || '';
+      const bodyMoisturize = fd.get('bodyMoisturize') || '';
+      const prodFormat = fd.get('prodFormat') || '';
+      const budget = fd.get('budget') || '';
+      const username = fd.get('username') || '';
+
+      // Compile recommendations
+      const recs = getRecommendation(faceConcern, bodyConcern, faceType);
+
+      // Build message for WhatsApp
+      let waMsg = `Hello ZEE Essentials, I just completed the skin analysis quiz!%0A%0A`
+      if (username) waMsg += `Name: ${username}%0A`;
+      waMsg += `Facial concern: ${faceConcern}%0A`;
+      waMsg += `Facial skin type: ${faceType}%0A`;
+      waMsg += `Face routine: ${faceRoutine}%0A`;
+      waMsg += `Allergies: ${allergy}` + (allergy==='Yes' && allergyDetails ? ` (${allergyDetails})` : '') + `%0A`;
+      waMsg += `Age range: ${ageRange}%0A%0A`;
+      waMsg += `Body concern: ${bodyConcern}%0A`;
+      waMsg += `Body irritation: ${bodyIrritation}%0A`;
+      waMsg += `Body moisturize: ${bodyMoisturize}%0A%0A`;
+      waMsg += `Preferred product format: ${prodFormat}%0A`;
+      waMsg += `Budget: ${budget}%0A%0A`;
+      waMsg += `Recommended products:%0A`;
+      recs.forEach(r => {
+        waMsg += `- ${r.recommendation} (${r.price})%0A`;
+      });
+      waMsg += `%0AI'm interested in these recommendations. Please advise on next steps!`;
+
+      const waURL = `https://wa.me/2348168079127?text=${waMsg}`;
+
+      // Build result display
+      let html = `<div class="rec"><b>Your personalized recommendations:</b><ul style="padding-left:16px;text-align:left;">`;
+      recs.forEach(r => {
+        html += `<li>${r.recommendation} <b>(${r.price})</b></li>`;
+      });
+      html += `</ul></div>`;
+      html += `<a class="whatsapp" href="${waURL}" target="_blank">Chat with ZEE Essentials on WhatsApp</a>`;
+      html += `<div class="privacy">By clicking, you'll be redirected to WhatsApp. Your quiz answers will be shared with ZEE Essentials for personalized service.</div>`;
+
+      document.getElementById('quizForm').style.display = 'none';
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = html;
+      resultDiv.style.display = 'block';
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+  </script>
+</body>
+</html>
